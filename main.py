@@ -8,7 +8,47 @@ class SpriteKind:
     NPC5 = SpriteKind.create()
     NPC6 = SpriteKind.create()
 
-def on_on_overlap(sprite, otherSprite):
+def on_on_overlap(sprite2, otherSprite2):
+    global DialogMode
+    DialogMode = True
+    game.show_long_text("Dalam UUD NRI Tahun 1945 dari Pasal 27-Pasal 34 berisi tentang .... warga negara.",
+        DialogLayout.BOTTOM)
+    story.show_player_choices("Hak", "Kewajiban", "Tugas")
+    if story.check_last_answer("Hak"):
+        info.change_score_by(10)
+        mySprite3.set_kind(SpriteKind.selesai)
+    elif story.check_last_answer("Kewajiban"):
+        info.change_score_by(-5)
+    elif story.check_last_answer("Tugas"):
+        info.change_score_by(-5)
+    else:
+        pass
+    DialogMode = False
+    pause(1000)
+sprites.on_overlap(SpriteKind.player, SpriteKind.NPC2, on_on_overlap)
+
+def on_on_overlap2(sprite5, otherSprite5):
+    global DialogMode
+    DialogMode = True
+    game.show_long_text("Apa contoh dari wujud hubungan aktif dari hubungan antara negara dengan warga negara ? ",
+        DialogLayout.BOTTOM)
+    story.show_player_choices("memberikan hak pilih dalam pemilu",
+        "menaati peraturan lalu lintas ",
+        "membayar pajak ")
+    if story.check_last_answer("memberikan hak pilih dalam pemilu"):
+        info.change_score_by(10)
+        mySprite2.set_kind(SpriteKind.selesai)
+    elif story.check_last_answer(" menaati peraturan lalu lintas "):
+        info.change_score_by(-5)
+    elif story.check_last_answer("membayar pajak "):
+        info.change_score_by(-5)
+    else:
+        pass
+    DialogMode = False
+    pause(1000)
+sprites.on_overlap(SpriteKind.player, SpriteKind.NPC1, on_on_overlap2)
+
+def on_on_overlap3(sprite, otherSprite):
     global DialogMode
     DialogMode = True
     game.show_long_text("Bagaimana sifat hubungan antara negara dan warga negara ?",
@@ -27,45 +67,7 @@ def on_on_overlap(sprite, otherSprite):
         pass
     DialogMode = False
     pause(1000)
-sprites.on_overlap(SpriteKind.player, SpriteKind.NPC5, on_on_overlap)
-
-def on_on_overlap2(sprite2, otherSprite2):
-    global DialogMode
-    DialogMode = True
-    game.show_long_text("Dalam UUD NRI Tahun 1945 dari Pasal 27-Pasal 34 berisi tentang .... warga negara.",
-        DialogLayout.BOTTOM)
-    story.show_player_choices("Hak", "Kewajiban", "Tugas")
-    if story.check_last_answer("Hak"):
-        info.change_score_by(10)
-        mySprite3.set_kind(SpriteKind.selesai)
-    elif story.check_last_answer("Kewajiban"):
-        info.change_score_by(-5)
-    elif story.check_last_answer("Tugas"):
-        info.change_score_by(-5)
-    else:
-        pass
-    DialogMode = False
-    pause(1000)
-sprites.on_overlap(SpriteKind.player, SpriteKind.NPC2, on_on_overlap2)
-
-def on_on_overlap3(sprite3, otherSprite3):
-    global DialogMode
-    DialogMode = True
-    game.show_long_text("Hak dan Kewajiban telah dicantumkan dalam UUD 1945 pasal. pasal berapa sajakah yang megatur mengenai hak dan kewajiban warga negara? ",
-        DialogLayout.BOTTOM)
-    story.show_player_choices("Pasal 25, 26, 27", "Pasal 30, 31, 32", "Pasal 27, 28, 30")
-    if story.check_last_answer("Pasal 25, 26, 27"):
-        info.change_score_by(-10)
-    elif story.check_last_answer("Pasal 30, 31, 32"):
-        info.change_score_by(-10)
-    elif story.check_last_answer("Pasal 27, 28, 30"):
-        info.change_score_by(30)
-        mySprite4.set_kind(SpriteKind.selesai)
-    else:
-        pass
-    DialogMode = False
-    pause(1000)
-sprites.on_overlap(SpriteKind.player, SpriteKind.NPC3, on_on_overlap3)
+sprites.on_overlap(SpriteKind.player, SpriteKind.NPC5, on_on_overlap3)
 
 def on_on_overlap4(sprite4, otherSprite4):
     global DialogMode
@@ -88,26 +90,24 @@ def on_on_overlap4(sprite4, otherSprite4):
     pause(1000)
 sprites.on_overlap(SpriteKind.player, SpriteKind.NPC4, on_on_overlap4)
 
-def on_on_overlap5(sprite5, otherSprite5):
+def on_on_overlap5(sprite3, otherSprite3):
     global DialogMode
     DialogMode = True
-    game.show_long_text("Apa contoh dari wujud hubungan aktif dari hubungan antara negara dengan warga negara ? ",
+    game.show_long_text("Hak dan Kewajiban telah dicantumkan dalam UUD 1945 pasal. pasal berapa sajakah yang megatur mengenai hak dan kewajiban warga negara? ",
         DialogLayout.BOTTOM)
-    story.show_player_choices("memberikan hak pilih dalam pemilu",
-        "menaati peraturan lalu lintas ",
-        "membayar pajak ")
-    if story.check_last_answer("memberikan hak pilih dalam pemilu"):
-        info.change_score_by(10)
-        mySprite2.set_kind(SpriteKind.selesai)
-    elif story.check_last_answer(" menaati peraturan lalu lintas "):
-        info.change_score_by(-5)
-    elif story.check_last_answer("membayar pajak "):
-        info.change_score_by(-5)
+    story.show_player_choices("Pasal 25, 26, 27", "Pasal 30, 31, 32", "Pasal 27, 28, 30")
+    if story.check_last_answer("Pasal 25, 26, 27"):
+        info.change_score_by(-10)
+    elif story.check_last_answer("Pasal 30, 31, 32"):
+        info.change_score_by(-10)
+    elif story.check_last_answer("Pasal 27, 28, 30"):
+        info.change_score_by(30)
+        mySprite4.set_kind(SpriteKind.selesai)
     else:
         pass
     DialogMode = False
     pause(1000)
-sprites.on_overlap(SpriteKind.player, SpriteKind.NPC1, on_on_overlap5)
+sprites.on_overlap(SpriteKind.player, SpriteKind.NPC3, on_on_overlap5)
 
 def on_on_overlap6(sprite6, otherSprite6):
     global DialogMode

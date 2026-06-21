@@ -7,6 +7,40 @@ namespace SpriteKind {
     export const NPC5 = SpriteKind.create()
     export const NPC6 = SpriteKind.create()
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC2, function (sprite2, otherSprite2) {
+    DialogMode = true
+    game.showLongText("Dalam UUD NRI Tahun 1945 dari Pasal 27-Pasal 34 berisi tentang .... warga negara.", DialogLayout.Bottom)
+    story.showPlayerChoices("Hak", "Kewajiban", "Tugas")
+    if (story.checkLastAnswer("Hak")) {
+        info.changeScoreBy(10)
+        mySprite3.setKind(SpriteKind.selesai)
+    } else if (story.checkLastAnswer("Kewajiban")) {
+        info.changeScoreBy(-5)
+    } else if (story.checkLastAnswer("Tugas")) {
+        info.changeScoreBy(-5)
+    } else {
+    	
+    }
+    DialogMode = false
+    pause(1000)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC1, function (sprite5, otherSprite5) {
+    DialogMode = true
+    game.showLongText("Apa contoh dari wujud hubungan aktif dari hubungan antara negara dengan warga negara ? ", DialogLayout.Bottom)
+    story.showPlayerChoices("memberikan hak pilih dalam pemilu", "menaati peraturan lalu lintas ", "membayar pajak ")
+    if (story.checkLastAnswer("memberikan hak pilih dalam pemilu")) {
+        info.changeScoreBy(10)
+        mySprite2.setKind(SpriteKind.selesai)
+    } else if (story.checkLastAnswer(" menaati peraturan lalu lintas ")) {
+        info.changeScoreBy(-5)
+    } else if (story.checkLastAnswer("membayar pajak ")) {
+        info.changeScoreBy(-5)
+    } else {
+    	
+    }
+    DialogMode = false
+    pause(1000)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC5, function (sprite, otherSprite) {
     DialogMode = true
     game.showLongText("Bagaimana sifat hubungan antara negara dan warga negara ?", DialogLayout.Bottom)
@@ -24,41 +58,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC5, function (sprite, otherSpr
     DialogMode = false
     pause(1000)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC2, function (sprite, otherSprite) {
-    DialogMode = true
-    game.showLongText("Dalam UUD NRI Tahun 1945 dari Pasal 27-Pasal 34 berisi tentang .... warga negara.", DialogLayout.Bottom)
-    story.showPlayerChoices("Hak", "Kewajiban", "Tugas")
-    if (story.checkLastAnswer("Hak")) {
-        info.changeScoreBy(10)
-        mySprite3.setKind(SpriteKind.selesai)
-    } else if (story.checkLastAnswer("Kewajiban")) {
-        info.changeScoreBy(-5)
-    } else if (story.checkLastAnswer("Tugas")) {
-        info.changeScoreBy(-5)
-    } else {
-    	
-    }
-    DialogMode = false
-    pause(1000)
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC3, function (sprite, otherSprite) {
-    DialogMode = true
-    game.showLongText("Hak dan Kewajiban telah dicantumkan dalam UUD 1945 pasal. pasal berapa sajakah yang megatur mengenai hak dan kewajiban warga negara? ", DialogLayout.Bottom)
-    story.showPlayerChoices("Pasal 25, 26, 27", "Pasal 30, 31, 32", "Pasal 27, 28, 30")
-    if (story.checkLastAnswer("Pasal 25, 26, 27")) {
-        info.changeScoreBy(-10)
-    } else if (story.checkLastAnswer("Pasal 30, 31, 32")) {
-        info.changeScoreBy(-10)
-    } else if (story.checkLastAnswer("Pasal 27, 28, 30")) {
-        info.changeScoreBy(30)
-        mySprite4.setKind(SpriteKind.selesai)
-    } else {
-    	
-    }
-    DialogMode = false
-    pause(1000)
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC4, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC4, function (sprite4, otherSprite4) {
     DialogMode = true
     game.showLongText("Dibawah ini yang bukan merupakan asas hubungan warga negara dengan negara adalah...", DialogLayout.Bottom)
     story.showPlayerChoices("Pancasila ", "Pembukaan UUD 1945 alinea I dan II", "Pembukaan UUD 1945 alinea III dan IV")
@@ -75,24 +75,24 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC4, function (sprite, otherSpr
     DialogMode = false
     pause(1000)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC1, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC3, function (sprite3, otherSprite3) {
     DialogMode = true
-    game.showLongText("Apa contoh dari wujud hubungan aktif dari hubungan antara negara dengan warga negara ? ", DialogLayout.Bottom)
-    story.showPlayerChoices("memberikan hak pilih dalam pemilu", "menaati peraturan lalu lintas ", "membayar pajak ")
-    if (story.checkLastAnswer("memberikan hak pilih dalam pemilu")) {
-        info.changeScoreBy(10)
-        mySprite2.setKind(SpriteKind.selesai)
-    } else if (story.checkLastAnswer(" menaati peraturan lalu lintas ")) {
-        info.changeScoreBy(-5)
-    } else if (story.checkLastAnswer("membayar pajak ")) {
-        info.changeScoreBy(-5)
+    game.showLongText("Hak dan Kewajiban telah dicantumkan dalam UUD 1945 pasal. pasal berapa sajakah yang megatur mengenai hak dan kewajiban warga negara? ", DialogLayout.Bottom)
+    story.showPlayerChoices("Pasal 25, 26, 27", "Pasal 30, 31, 32", "Pasal 27, 28, 30")
+    if (story.checkLastAnswer("Pasal 25, 26, 27")) {
+        info.changeScoreBy(-10)
+    } else if (story.checkLastAnswer("Pasal 30, 31, 32")) {
+        info.changeScoreBy(-10)
+    } else if (story.checkLastAnswer("Pasal 27, 28, 30")) {
+        info.changeScoreBy(30)
+        mySprite4.setKind(SpriteKind.selesai)
     } else {
     	
     }
     DialogMode = false
     pause(1000)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC6, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC6, function (sprite6, otherSprite6) {
     DialogMode = true
     game.showLongText("Menurut teori Marxis, bagaimana pandangan terhadap peran negara dalam hubungannya dengan kaum borjuis?", DialogLayout.Bottom)
     story.showPlayerChoices("Negara hanya alat masyarakat", "Negara memiliki kekuatan nyata", "Negara harus dikendalikan oleh kelompok borjuis")
@@ -109,7 +109,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC6, function (sprite, otherSpr
     DialogMode = false
     pause(1000)
 })
-scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleRedCrystal, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleRedCrystal, function (sprite7, location) {
     game.over(true, effects.smiles)
 })
 let DialogMode = false
@@ -120,24 +120,7 @@ let mySprite4: Sprite = null
 let mySprite3: Sprite = null
 let mySprite2: Sprite = null
 tiles.setTilemap(tilemap`level1`)
-let mySprite = sprites.create(img`
-    . . . . f f f f . . . . . 
-    . . f f f f f f f f . . . 
-    . f f f f f f c f f f . . 
-    f f f f f f c c f f f c . 
-    f f f c f f f f f f f c . 
-    c c c f f f e e f f c c . 
-    f f f f f e e f f c c f . 
-    f f f b f e e f b f f f . 
-    . f 4 1 f 4 4 f 1 4 f . . 
-    . f e 4 4 4 4 4 4 e f . . 
-    . f f f e e e e f f f . . 
-    f e f 5 8 8 8 8 5 f e f . 
-    e 4 f 8 8 8 8 8 8 f 4 e . 
-    e e f 9 9 9 9 9 9 f e e . 
-    . . . f f f f f f . . . . 
-    . . . f f . . f f . . . . 
-    `, SpriteKind.Player)
+let mySprite = sprites.create(assets.image`princessFront0`, SpriteKind.Player)
 mySprite2 = sprites.create(img`
     ......ffff..............
     ....fff22fff............
